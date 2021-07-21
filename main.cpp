@@ -11,7 +11,7 @@ struct Graph {
         struct Edge* edges;
 };
 
-void BellmanFord(Graph* graph, int src, int* costs, bool& inf);
+void bellmanFord(Graph* graph, int src, int* costs, bool& inf);
 
 int main() {
 
@@ -34,7 +34,7 @@ int main() {
                 if (src != src_now) {
                         src = src_now;
                         inf = false;
-                        BellmanFord(graph, src, costs, inf);
+                        bellmanFord(graph, src, costs, inf);
                 }
                 if (costs[dest] != INT_MAX && inf == false) {
                         printf("%i\n", costs[dest]);
@@ -54,7 +54,7 @@ int main() {
         return 0;
 }
 
-void BellmanFord(Graph* graph, int src, int* costs, bool& inf) {
+void bellmanFord(Graph* graph, int src, int* costs, bool& inf) {
         int vertices = graph->vert;
         int edges = graph->edg;
 
